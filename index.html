@@ -135,13 +135,28 @@
     <section id="screenshots" class="bg-[#F5F5F7] py-24">
       <div class="max-w-6xl mx-auto px-6">
         <h2 class="font-display text-3xl md:text-4xl text-[#1D1D1F] text-center mb-12" data-i18n="screenshots.title">Screenshots</h2>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <img src="ScreenshotPista.png"   alt="Track view"        class="w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity aspect-video" onclick="openLightbox(this.src, this.alt)">
-          <img src="ScreenshotTV.png"      alt="TV screen"         class="w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity aspect-video" onclick="openLightbox(this.src, this.alt)">
-          <img src="ScreenshotMobile1.png" alt="Mobile controller" class="w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity aspect-video" onclick="openLightbox(this.src, this.alt)">
-          <img src="ScreenshotMobile2.png" alt="Mobile strategy"   class="w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity aspect-video" onclick="openLightbox(this.src, this.alt)">
-          <img src="racetime.png"          alt="Race time"         class="w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity aspect-video" onclick="openLightbox(this.src, this.alt)">
-          <img src="sabotime.png"          alt="Sabotage phase"    class="w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity aspect-video" onclick="openLightbox(this.src, this.alt)">
+        <div class="relative overflow-hidden rounded-2xl" id="carousel">
+          <!-- Track -->
+          <div id="carousel-track" class="flex" style="transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);">
+            <div class="carousel-slide flex-shrink-0 w-full"><img src="ScreenshotPista.png"   alt="Track view"        class="w-full object-cover aspect-video cursor-pointer" onclick="openLightbox(this.src, this.alt)"></div>
+            <div class="carousel-slide flex-shrink-0 w-full"><img src="ScreenshotTV.png"      alt="TV screen"         class="w-full object-cover aspect-video cursor-pointer" onclick="openLightbox(this.src, this.alt)"></div>
+            <div class="carousel-slide flex-shrink-0 w-full"><img src="ScreenshotMobile1.png" alt="Mobile controller" class="w-full object-cover aspect-video cursor-pointer" onclick="openLightbox(this.src, this.alt)"></div>
+            <div class="carousel-slide flex-shrink-0 w-full"><img src="ScreenshotMobile2.png" alt="Mobile strategy"   class="w-full object-cover aspect-video cursor-pointer" onclick="openLightbox(this.src, this.alt)"></div>
+            <div class="carousel-slide flex-shrink-0 w-full"><img src="racetime.png"          alt="Race time"         class="w-full object-cover aspect-video cursor-pointer" onclick="openLightbox(this.src, this.alt)"></div>
+            <div class="carousel-slide flex-shrink-0 w-full"><img src="sabotime.png"          alt="Sabotage phase"    class="w-full object-cover aspect-video cursor-pointer" onclick="openLightbox(this.src, this.alt)"></div>
+          </div>
+          <!-- Prev / Next -->
+          <button id="carousel-prev" aria-label="Previous" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow hover:bg-white transition-colors text-[#1D1D1F] text-lg">&#8249;</button>
+          <button id="carousel-next" aria-label="Next"     class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow hover:bg-white transition-colors text-[#1D1D1F] text-lg">&#8250;</button>
+        </div>
+        <!-- Dots -->
+        <div id="carousel-dots" class="flex justify-center gap-2 mt-5">
+          <button class="carousel-dot w-2 h-2 rounded-full transition-colors bg-accent" data-index="0" aria-label="Slide 1"></button>
+          <button class="carousel-dot w-2 h-2 rounded-full transition-colors bg-gray-300" data-index="1" aria-label="Slide 2"></button>
+          <button class="carousel-dot w-2 h-2 rounded-full transition-colors bg-gray-300" data-index="2" aria-label="Slide 3"></button>
+          <button class="carousel-dot w-2 h-2 rounded-full transition-colors bg-gray-300" data-index="3" aria-label="Slide 4"></button>
+          <button class="carousel-dot w-2 h-2 rounded-full transition-colors bg-gray-300" data-index="4" aria-label="Slide 5"></button>
+          <button class="carousel-dot w-2 h-2 rounded-full transition-colors bg-gray-300" data-index="5" aria-label="Slide 6"></button>
         </div>
       </div>
     </section>
@@ -339,6 +354,43 @@
     document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    // ── Carousel ─────────────────────────────────────────────────────────────
+    (function () {
+      const track = document.getElementById('carousel-track');
+      const dots  = document.querySelectorAll('.carousel-dot');
+      const total = 6;
+      let current = 0;
+      let timer;
+
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = 'translateX(-' + current * 100 + '%)';
+        dots.forEach((d, i) => {
+          d.classList.toggle('bg-accent',   i === current);
+          d.classList.toggle('bg-gray-300', i !== current);
+        });
+      }
+
+      function start() { timer = setInterval(() => goTo(current + 1), 3500); }
+      function stop()  { clearInterval(timer); }
+
+      document.getElementById('carousel-prev').addEventListener('click', () => { stop(); goTo(current - 1); start(); });
+      document.getElementById('carousel-next').addEventListener('click', () => { stop(); goTo(current + 1); start(); });
+      dots.forEach(d => d.addEventListener('click', () => { stop(); goTo(+d.dataset.index); start(); }));
+
+      // Swipe
+      let tx = 0;
+      track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; stop(); }, { passive: true });
+      track.addEventListener('touchend',   e => { const dx = tx - e.changedTouches[0].clientX; if (Math.abs(dx) > 40) goTo(current + (dx > 0 ? 1 : -1)); start(); }, { passive: true });
+
+      // Pause on hover
+      track.addEventListener('mouseenter', stop);
+      track.addEventListener('mouseleave', start);
+
+      goTo(0);
+      start();
+    })();
 
     // ── Init ──────────────────────────────────────────────────────────────────
     document.addEventListener('DOMContentLoaded', () => applyLang(currentLang));
