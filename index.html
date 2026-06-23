@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SaboTrack</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { accent: '#FF5C00' },
+          fontFamily: {
+            display: ['Audiowide', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .chip { background-color: rgba(255,92,0,0.1); color: #FF5C00; }
+  </style>
+</head>
+<body class="bg-white text-[#1D1D1F] antialiased">
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 bg-white transition-all duration-200">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <img src="icon.png" alt="SaboTrack icon" class="h-8 w-8 rounded-lg">
+        <span class="font-display text-xl text-[#1D1D1F]">SaboTrack</span>
+      </a>
+      <div class="flex items-center gap-1 bg-[#F5F5F7] rounded-full p-1">
+        <button data-lang="en" class="lang-btn px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 bg-white shadow text-[#1D1D1F]" onclick="applyLang('en')">EN</button>
+        <button data-lang="it" class="lang-btn px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 text-[#6E6E73]" onclick="applyLang('it')">IT</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT PLACEHOLDER -->
+  <main class="pt-16"></main>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true">
+    <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl leading-none" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="" class="max-h-[90vh] max-w-full rounded-2xl object-contain">
+  </div>
+
+  <script>
+    // ── i18n ──────────────────────────────────────────────────────────────────
+    const translations = {
+      en: {
+        'hero.tagline': 'The track changes. The chaos is yours.',
+        'hero.cta.trailer': 'Watch Trailer',
+        'hero.cta.learn': 'Learn More',
+        'trailer.title': 'Watch the Trailer',
+        'game.title': 'How It Works',
+        'game.intro': 'Each race, players place objects on the track — ramps, oil slicks, spinning hammers — shaping the chaos for everyone. Score points by finishing races, triggering your own objects, and outsmarting your rivals.',
+        'game.pillar1.title': 'Controlled Chaos',
+        'game.pillar1.body': 'Every race is unpredictable, but the unpredictability always comes from deliberate player choices — not pure randomness. The track transforms lap by lap by collective will.',
+        'game.pillar2.title': 'Comeback Loop',
+        'game.pillar2.body': 'Players behind in the standings always have concrete tools to catch up. No one is out of the game before the last race.',
+        'game.pillar3.title': 'Split Experience',
+        'game.pillar3.body': 'TV and phone are two complementary roles in the same experience. The shared screen creates social moments; the phone creates intimacy and control.',
+        'screenshots.title': 'Screenshots',
+        'team.title': 'Meet the Team',
+        'story.title': 'Our Story',
+        'story.why.heading': 'Why We Built SaboTrack',
+        'story.why.body': 'We wanted to create a game that feels like a party from the moment you turn it on — chaotic, social, and always fair. SaboTrack was born from our love of party games and our frustration with games that leave players feeling powerless.',
+        'story.afp.heading': 'Apple Foundation Program',
+        'story.afp.body': 'SaboTrack was developed as part of the Apple Foundation Program Avanzato 2026, an intensive program where selected developers build real products using Apple technologies. The experience shaped every design decision — from the asymmetric Apple TV + iPhone setup to the clean, minimal aesthetic.',
+        'footer.rights': '© 2026 SaboTrack. All rights reserved.',
+      },
+      it: {
+        'hero.tagline': 'Il tracciato cambia. Il caos è tuo.',
+        'hero.cta.trailer': 'Guarda il Trailer',
+        'hero.cta.learn': 'Scopri di più',
+        'trailer.title': 'Guarda il Trailer',
+        'game.title': 'Come Funziona',
+        'game.intro': "Ad ogni gara, i giocatori piazzano oggetti sulla pista — rampe, pozze d'olio, martelli rotanti — plasmando il caos per tutti. Accumula punti finendo le gare, attivando i tuoi oggetti e sorprendendo i tuoi avversari.",
+        'game.pillar1.title': 'Caos Controllato',
+        'game.pillar1.body': "Ogni corsa è imprevedibile, ma l'imprevedibilità nasce sempre da decisioni deliberate dei giocatori, non da casualità pura. Il tracciato si trasforma giro dopo giro per volere collettivo.",
+        'game.pillar2.title': 'Rivalsa Possibile',
+        'game.pillar2.body': "Chi è indietro in classifica ha sempre strumenti concreti per rimontare. Nessun giocatore si sente fuori dalla partita prima dell'ultima corsa.",
+        'game.pillar3.title': 'Split Experience',
+        'game.pillar3.body': "TV e telefono non sono due giochi separati: sono due ruoli complementari della stessa esperienza. Lo schermo condiviso crea momenti sociali; il telefono crea intimità e controllo.",
+        'screenshots.title': 'Screenshot',
+        'team.title': 'Il Team',
+        'story.title': 'La Nostra Storia',
+        'story.why.heading': 'Perché abbiamo creato SaboTrack',
+        'story.why.body': 'Volevamo creare un gioco che si senta come una festa dal momento in cui lo accendi — caotico, sociale e sempre equo. SaboTrack è nato dal nostro amore per i party game e dalla frustrazione per i giochi che lasciano i giocatori senza strumenti per rimontare.',
+        'story.afp.heading': 'Apple Foundation Program',
+        'story.afp.body': "SaboTrack è stato sviluppato nell'ambito dell'Apple Foundation Program Avanzato 2026, un programma intensivo in cui sviluppatori selezionati costruiscono prodotti reali usando le tecnologie Apple. L'esperienza ha plasmato ogni decisione di design — dalla configurazione asimmetrica Apple TV + iPhone all'estetica pulita e minimale.",
+        'footer.rights': '© 2026 SaboTrack. Tutti i diritti riservati.',
+      },
+    };
+
+    let currentLang = localStorage.getItem('sabotrack-lang') || 'en';
+
+    function applyLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('sabotrack-lang', lang);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (translations[lang][key] !== undefined) el.textContent = translations[lang][key];
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        const active = btn.dataset.lang === lang;
+        btn.classList.toggle('bg-white', active);
+        btn.classList.toggle('shadow', active);
+        btn.classList.toggle('text-[#1D1D1F]', active);
+        btn.classList.toggle('text-[#6E6E73]', !active);
+      });
+    }
+
+    // ── Navbar scroll border ──────────────────────────────────────────────────
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      nav.classList.toggle('border-b', window.scrollY > 0);
+      nav.classList.toggle('border-gray-200', window.scrollY > 0);
+    }, { passive: true });
+
+    // ── Lightbox ──────────────────────────────────────────────────────────────
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      lightboxImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    // ── Init ──────────────────────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => applyLang(currentLang));
+  </script>
+</body>
+</html>
