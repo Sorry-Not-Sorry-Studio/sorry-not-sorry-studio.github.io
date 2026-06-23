@@ -1,1 +1,7 @@
 .superpowers/
+.claude/
+.impeccable/
+CLAUDE.md
+server.log
+verify_team.sh
+docs/
