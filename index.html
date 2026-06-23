@@ -42,8 +42,32 @@
     </div>
   </nav>
 
-  <!-- MAIN CONTENT PLACEHOLDER -->
-  <main class="pt-16"></main>
+  <main class="pt-16">
+
+    <!-- ── HERO ──────────────────────────────────────────────────────────── -->
+    <section id="hero" class="bg-[#F5F5F7] min-h-[90vh] flex items-center">
+      <div class="max-w-6xl mx-auto px-6 py-20 w-full">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="flex-1 text-center lg:text-left">
+            <h1 class="font-display text-6xl md:text-7xl lg:text-8xl text-[#1D1D1F] mb-4">SaboTrack</h1>
+            <p class="text-xl md:text-2xl text-[#6E6E73] mb-8 max-w-lg mx-auto lg:mx-0" data-i18n="hero.tagline">The track changes. The chaos is yours.</p>
+            <div class="flex flex-wrap gap-2 justify-center lg:justify-start mb-8">
+              <span class="px-3 py-1 rounded-full bg-[#1D1D1F] text-white text-sm font-medium">Apple TV</span>
+              <span class="px-3 py-1 rounded-full bg-[#1D1D1F] text-white text-sm font-medium">iPhone</span>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+              <a href="#trailer" class="px-6 py-3 rounded-full bg-accent text-white font-semibold text-center hover:opacity-90 transition-opacity" data-i18n="hero.cta.trailer">Watch Trailer</a>
+              <a href="#game" class="px-6 py-3 rounded-full bg-white text-[#1D1D1F] font-semibold text-center border border-gray-200 hover:bg-gray-50 transition-colors" data-i18n="hero.cta.learn">Learn More</a>
+            </div>
+          </div>
+          <div class="flex-1 w-full max-w-xl">
+            <img src="SaboTrackHD.png" alt="SaboTrack gameplay" class="w-full rounded-3xl shadow-2xl">
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- LIGHTBOX -->
   <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true">
