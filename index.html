@@ -32,7 +32,7 @@
     html { scroll-behavior: smooth; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
     .chip { background-color: rgba(255,92,0,0.1); color: #FF5C00; }
-    #lightbox { display: flex; align-items: center; justify-content: center; }
+    #lightbox { display: none; align-items: center; justify-content: center; }
   </style>
 </head>
 <body class="bg-white text-[#1D1D1F] antialiased">
@@ -83,7 +83,7 @@
         <div class="max-w-4xl mx-auto">
           <div class="aspect-video rounded-2xl overflow-hidden shadow-2xl">
             <iframe
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              src="https://www.youtube.com/embed/QfUnu4GDK1I"
               title="SaboTrack Trailer"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -238,7 +238,7 @@
   </footer>
 
   <!-- LIGHTBOX -->
-  <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden p-4" role="dialog" aria-modal="true">
+  <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 p-4" role="dialog" aria-modal="true">
     <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl leading-none" aria-label="Close">&times;</button>
     <img id="lightbox-img" src="" alt="" class="max-h-[90vh] max-w-full rounded-2xl object-contain">
   </div>
@@ -326,12 +326,12 @@
     function openLightbox(src, alt) {
       lightboxImg.src = src;
       lightboxImg.alt = alt;
-      lightbox.classList.remove('hidden');
+      lightbox.style.display = 'flex';
       document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
-      lightbox.classList.add('hidden');
+      lightbox.style.display = 'none';
       lightboxImg.src = '';
       document.body.style.overflow = '';
     }
