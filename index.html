@@ -32,6 +32,7 @@
     html { scroll-behavior: smooth; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
     .chip { background-color: rgba(255,92,0,0.1); color: #FF5C00; }
+    #lightbox { display: flex; align-items: center; justify-content: center; }
   </style>
 </head>
 <body class="bg-white text-[#1D1D1F] antialiased">
@@ -44,8 +45,8 @@
         <span class="font-display text-xl text-[#1D1D1F]">SaboTrack</span>
       </a>
       <div class="flex items-center gap-1 bg-[#F5F5F7] rounded-full p-1">
-        <button data-lang="en" class="lang-btn px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 bg-white shadow text-[#1D1D1F]" onclick="applyLang('en')">EN</button>
-        <button data-lang="it" class="lang-btn px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 text-[#6E6E73]" onclick="applyLang('it')">IT</button>
+        <button data-lang="en" class="lang-btn px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 bg-white shadow text-[#1D1D1F]" aria-pressed="true" onclick="applyLang('en')">EN</button>
+        <button data-lang="it" class="lang-btn px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 text-[#6E6E73]" aria-pressed="false" onclick="applyLang('it')">IT</button>
       </div>
     </div>
   </nav>
@@ -87,6 +88,7 @@
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
+              loading="lazy"
               class="w-full h-full">
             </iframe>
           </div>
@@ -236,7 +238,7 @@
   </footer>
 
   <!-- LIGHTBOX -->
-  <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true">
+  <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden p-4" role="dialog" aria-modal="true">
     <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl leading-none" aria-label="Close">&times;</button>
     <img id="lightbox-img" src="" alt="" class="max-h-[90vh] max-w-full rounded-2xl object-contain">
   </div>
@@ -306,6 +308,7 @@
         btn.classList.toggle('shadow', active);
         btn.classList.toggle('text-[#1D1D1F]', active);
         btn.classList.toggle('text-[#6E6E73]', !active);
+        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
       });
     }
 
@@ -324,13 +327,11 @@
       lightboxImg.src = src;
       lightboxImg.alt = alt;
       lightbox.classList.remove('hidden');
-      lightbox.classList.add('flex');
       document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
       lightbox.classList.add('hidden');
-      lightbox.classList.remove('flex');
       lightboxImg.src = '';
       document.body.style.overflow = '';
     }
