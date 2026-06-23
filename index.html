@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SaboTrack</title>
+  <meta name="description" content="SaboTrack — a multiplayer party racing game for Apple TV and iPhone. Place objects, shape the chaos, and race to the top.">
+  <meta property="og:title" content="SaboTrack">
+  <meta property="og:description" content="A multiplayer party racing game for Apple TV and iPhone.">
+  <meta property="og:image" content="SaboTrackHD.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -215,6 +223,17 @@
     </section>
 
   </main>
+
+  <!-- ── FOOTER ────────────────────────────────────────────────────────── -->
+  <footer class="bg-[#1D1D1F] py-10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <img src="icon.png" alt="SaboTrack icon" class="h-6 w-6 rounded">
+        <span class="font-display text-white text-sm">SaboTrack</span>
+      </div>
+      <p class="text-[#6E6E73] text-sm text-center" data-i18n="footer.rights">© 2026 SaboTrack. All rights reserved.</p>
+    </div>
+  </footer>
 
   <!-- LIGHTBOX -->
   <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true">
