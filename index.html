@@ -7,7 +7,7 @@
   <meta name="description" content="SaboTrack: a multiplayer party racing game for Apple TV and iPhone. Place objects, shape the chaos, and race to the top.">
   <meta property="og:title" content="SaboTrack">
   <meta property="og:description" content="A multiplayer party racing game for Apple TV and iPhone.">
-  <meta property="og:image" content="assets/game/SaboTrackHD.png">
+  <meta property="og:image" content="https://sorry-not-sorry-studio.github.io/assets/game/SaboTrackHD.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="assets/game/icon.png">
@@ -65,8 +65,8 @@
         <div class="flex flex-col lg:flex-row items-center gap-12">
           <div class="flex-1 text-center lg:text-left">
             <img src="assets/game/SaboTrackHD.png" alt="SaboTrack" class="h-20 md:h-28 lg:h-32 mb-6 mx-auto lg:mx-0 object-contain">
-            <p class="text-xl md:text-2xl text-[#6E6E73] mb-8 max-w-lg mx-auto lg:mx-0" data-i18n="hero.tagline">Your track. Your sabotage. Their problem.</p>
-            <div class="flex gap-4 justify-center lg:justify-start mb-8">
+            <p class="text-xl md:text-2xl text-[#6E6E73] mb-8 max-w-lg mx-auto lg:mx-0">Your track. Your sabotage.<span class="block sm:inline"> Their problem.</span></p>
+            <div class="hidden flex gap-4 justify-center lg:justify-start mb-8">
               <div class="flex flex-col items-center gap-1.5">
                 <span class="text-[10px] text-[#6E6E73] uppercase tracking-widest" data-i18n="store.comingsoon">Coming Soon</span>
                 <a href="#" aria-disabled="true" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-black text-white cursor-not-allowed select-none">
@@ -94,7 +94,7 @@
             </div>
           </div>
           <div class="flex-1 w-full max-w-xl">
-            <img src="assets/screenshots/ScreenshotPista.png" alt="SaboTrack track screenshot" class="w-full rounded-3xl shadow-2xl">
+            <img src="assets/screenshots/hero.png" alt="SaboTrack track screenshot" class="w-full">
           </div>
         </div>
       </div>
@@ -123,7 +123,7 @@
     <section id="phases" class="bg-white py-24">
       <div class="max-w-6xl mx-auto px-6">
         <h2 class="font-display text-3xl md:text-4xl text-[#1D1D1F] text-center mb-4" data-i18n="phases.title">How It Works</h2>
-        <p class="text-[#6E6E73] text-center max-w-2xl mx-auto mb-16 text-lg leading-relaxed" data-i18n="game.intro">Each race, players place objects on the track: ramps, oil slicks, spinning hammers. They shape the chaos for everyone. Score points by finishing races, triggering your own objects, and outsmarting your rivals.</p>
+        <p class="text-[#6E6E73] text-center max-w-2xl mx-auto mb-16 text-lg leading-relaxed" data-i18n="game.intro">Each race, players place objects on the track: ramps, oil slicks, boost pads. They shape the chaos for everyone. Score points by finishing races, laying your own traps, and outsmarting your rivals.</p>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
           <div class="bg-[#F5F5F7] rounded-2xl overflow-hidden shadow-sm flex flex-col">
@@ -142,7 +142,7 @@
             </div>
             <div class="px-8 pb-8 flex-1">
               <p class="text-accent font-semibold text-lg mb-3" data-i18n="phases.sabo.sub">Time to weaponize the track!</p>
-              <p class="text-gray-400 leading-relaxed" data-i18n="phases.sabo.body">Racing pauses but the chaos begins. Choose a trap from a random pool and place it anywhere on the circuit. Watch your opponents crash into your traps to score extra sabotage points!</p>
+              <p class="text-gray-400 leading-relaxed" data-i18n="phases.sabo.body">Racing pauses, but the chaos begins. Choose a trap from a random pool and place it anywhere on the circuit. Watch your opponents crash into your traps and score extra sabotage points. Just watch out: the track doesn't care whose side you're on.</p>
             </div>
           </div>
 
@@ -152,30 +152,36 @@
 
     <section id="game" class="bg-[#F5F5F7] py-24">
       <div class="max-w-6xl mx-auto px-6">
-        <h2 class="font-display text-3xl md:text-4xl text-[#1D1D1F] text-center mb-16" data-i18n="game.title">Design Pillars</h2>
+        <h2 class="font-display text-3xl md:text-4xl text-[#1D1D1F] text-center mb-16" data-i18n="game.title">What Makes It Tick</h2>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
             <img src="assets/pillars/Controller%20Chaos.png" alt="Controlled Chaos" class="w-full object-cover">
             <div class="p-6">
-              <h3 class="font-display text-xl text-[#1D1D1F] mb-3" data-i18n="game.pillar1.title">Controlled Chaos</h3>
-              <p class="text-[#6E6E73] text-sm leading-relaxed" data-i18n="game.pillar1.body">Every race is unpredictable, but the unpredictability always comes from deliberate player choices, not pure randomness. The track transforms lap by lap by collective will.</p>
+              <p class="text-[#6E6E73] text-sm leading-relaxed" data-i18n="game.pillar1.body">Every race is unpredictable, but the unpredictability always comes from deliberate player choices, not pure randomness. The track transforms lap by lap, shaped by collective will.</p>
+            </div>
+            <div class="px-6 pb-6">
+              <img src="assets/game/mockup1.png" alt="Mockup 1" class="w-full rounded-xl">
             </div>
           </div>
 
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
             <img src="assets/pillars/Comeback%20Loop.png" alt="Comeback Loop" class="w-full object-cover">
             <div class="p-6">
-              <h3 class="font-display text-xl text-[#1D1D1F] mb-3" data-i18n="game.pillar2.title">Comeback Loop</h3>
-              <p class="text-[#6E6E73] text-sm leading-relaxed" data-i18n="game.pillar2.body">Players behind in the standings always have concrete tools to catch up. No one is out of the game before the last race.</p>
+              <p class="text-[#6E6E73] text-sm leading-relaxed" data-i18n="game.pillar2.body">Placement points are only part of the story. Hit your rivals with your own traps and score extra sabotage points. No one is out of the race before the last lap.</p>
+            </div>
+            <div class="px-6 pb-6">
+              <img src="assets/game/classifica.png" alt="Classifica" class="w-full rounded-xl">
             </div>
           </div>
 
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
             <img src="assets/pillars/Splite%20Experience.png" alt="Split Experience" class="w-full object-cover">
             <div class="p-6">
-              <h3 class="font-display text-xl text-[#1D1D1F] mb-3" data-i18n="game.pillar3.title">Split Experience</h3>
-              <p class="text-[#6E6E73] text-sm leading-relaxed" data-i18n="game.pillar3.body">TV and phone are two complementary roles in the same experience. The shared screen creates social moments; the phone creates intimacy and control.</p>
+              <p class="text-[#6E6E73] text-sm leading-relaxed" data-i18n="game.pillar3.body">The TV is the racetrack. Your iPhone is the steering wheel, the strategy tool, and the weapon. Two screens, one shared chaos.</p>
+            </div>
+            <div class="px-6 pb-6">
+              <img src="assets/game/split.png" alt="Split" class="w-full rounded-xl">
             </div>
           </div>
 
@@ -188,11 +194,12 @@
         <h2 class="font-display text-3xl md:text-4xl text-[#1D1D1F] text-center mb-12" data-i18n="screenshots.title">Screenshots</h2>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <img src="assets/screenshots/ScreenshotTV.png"       alt="TV screen"         class="w-full rounded-2xl cursor-pointer hover:opacity-90 transition-opacity" onclick="openLightbox(this.src, this.alt)">
+          <img src="assets/screenshots/ScreenshotPista.png"       alt="TV screen"         class="w-full rounded-2xl cursor-pointer hover:opacity-90 transition-opacity" onclick="openLightbox(this.src, this.alt)">
           <img src="assets/screenshots/ScreenshotMobile1.png" alt="Mobile controller" class="w-full rounded-2xl cursor-pointer hover:opacity-90 transition-opacity" onclick="openLightbox(this.src, this.alt)">
           <img src="assets/screenshots/ScreenshotMobile2.png" alt="Mobile strategy"   class="w-full rounded-2xl cursor-pointer hover:opacity-90 transition-opacity" onclick="openLightbox(this.src, this.alt)">
-          <img src="assets/game/mockup1.png"                  alt="Mockup TV view"    class="w-full rounded-2xl cursor-pointer hover:opacity-90 transition-opacity" onclick="openLightbox(this.src, this.alt)">
-          <img src="assets/game/mockup2.png"                  alt="Mockup TV view"    class="w-full rounded-2xl cursor-pointer hover:opacity-90 transition-opacity" onclick="openLightbox(this.src, this.alt)">
-          <img src="assets/game/mockup3.png"                  alt="Mockup iPhone"     class="w-full rounded-2xl cursor-pointer hover:opacity-90 transition-opacity" onclick="openLightbox(this.src, this.alt)">
+          <img src="assets/game/mockup1.png"                  alt="Mockup 1"    class="w-full rounded-2xl cursor-pointer hover:opacity-90 transition-opacity" onclick="openLightbox(this.src, this.alt)">
+          <img src="assets/game/mockup2.png"                  alt="Mockup 2"    class="w-full rounded-2xl cursor-pointer hover:opacity-90 transition-opacity" onclick="openLightbox(this.src, this.alt)">
+          <img src="assets/game/mockup3.png"                  alt="Mockup 3"     class="w-full rounded-2xl cursor-pointer hover:opacity-90 transition-opacity" onclick="openLightbox(this.src, this.alt)">
         </div>
       </div>
     </section>
@@ -207,31 +214,32 @@
 
           <div class="bg-white rounded-2xl p-6 flex flex-col gap-3">
             <img src="assets/team/federico.png" alt="Federico Agnello" class="w-16 h-16 rounded-full object-cover">
-            <h3 class="font-display text-base text-[#1D1D1F] leading-tight">Federico Agnello</h3>
-            <p class="text-xs text-[#6E6E73]">BSc Computer Science</p>
+            <h3 class="font-display text-sm sm:text-base text-[#1D1D1F] leading-tight">Federico Agnello</h3>
+            <p class="text-xs text-[#6E6E73]" data-i18n="team.degree.bsc_cs">BSc Computer Science</p>
             <div class="flex flex-wrap gap-1.5">
               <span class="chip px-2 py-0.5 rounded-full text-xs font-medium">Game Designer</span>
               <span class="chip px-2 py-0.5 rounded-full text-xs font-medium">Developer</span>
               <span class="chip px-2 py-0.5 rounded-full text-xs font-medium">Video Editor</span>
+              <span class="chip px-2 py-0.5 rounded-full text-xs font-medium">Web Designer</span>
               <span class="chip px-2 py-0.5 rounded-full text-xs font-medium">3D Modeller</span>
             </div>
           </div>
 
           <div class="bg-white rounded-2xl p-6 flex flex-col gap-3">
             <img src="assets/team/marco.png" alt="Marco Bellante" class="w-16 h-16 rounded-full object-cover">
-            <h3 class="font-display text-base text-[#1D1D1F] leading-tight">Marco Bellante</h3>
-            <p class="text-xs text-[#6E6E73]">BSc Computer Science</p>
+            <h3 class="font-display text-sm sm:text-base text-[#1D1D1F] leading-tight">Marco Bellante</h3>
+            <p class="text-xs text-[#6E6E73]" data-i18n="team.degree.bsc_cs">BSc Computer Science</p>
             <div class="flex flex-wrap gap-1.5">
               <span class="chip px-2 py-0.5 rounded-full text-xs font-medium">UI/UX Designer</span>
-              <span class="chip px-2 py-0.5 rounded-full text-xs font-medium">Graphic Designer</span>
               <span class="chip px-2 py-0.5 rounded-full text-xs font-medium">Logo Designer</span>
+              <span class="chip px-2 py-0.5 rounded-full text-xs font-medium">Graphic Designer</span>
             </div>
           </div>
 
           <div class="bg-white rounded-2xl p-6 flex flex-col gap-3">
             <img src="assets/team/dario.png" alt="Dario Giuseppe Maria Rizzo" class="w-16 h-16 rounded-full object-cover">
-            <h3 class="font-display text-base text-[#1D1D1F] leading-tight">Dario Giuseppe Maria Rizzo</h3>
-            <p class="text-xs text-[#6E6E73]">MSc Computer Science</p>
+            <h3 class="font-display text-sm sm:text-base text-[#1D1D1F] leading-tight">Dario Giuseppe Maria Rizzo</h3>
+            <p class="text-xs text-[#6E6E73]" data-i18n="team.degree.msc_cs">MSc Computer Science</p>
             <div class="flex flex-wrap gap-1.5">
               <span class="chip px-2 py-0.5 rounded-full text-xs font-medium">Game Designer</span>
               <span class="chip px-2 py-0.5 rounded-full text-xs font-medium">Developer</span>
@@ -242,11 +250,10 @@
 
           <div class="bg-white rounded-2xl p-6 flex flex-col gap-3">
             <img src="assets/team/paolo.png" alt="Paolosalvatore Piazza" class="w-16 h-16 rounded-full object-cover">
-            <h3 class="font-display text-base text-[#1D1D1F] leading-tight">Paolosalvatore Piazza</h3>
-            <p class="text-xs text-[#6E6E73]">BSc Computer Engineering</p>
+            <h3 class="font-display text-sm sm:text-base text-[#1D1D1F] leading-tight">Paolosalvatore Piazza</h3>
+            <p class="text-xs text-[#6E6E73]" data-i18n="team.degree.bsc_ce">BSc Computer Engineering</p>
             <div class="flex flex-wrap gap-1.5">
               <span class="chip px-2 py-0.5 rounded-full text-xs font-medium">UI/UX Designer</span>
-              <span class="chip px-2 py-0.5 rounded-full text-xs font-medium">Developer</span>
               <span class="chip px-2 py-0.5 rounded-full text-xs font-medium">Logo Designer</span>
               <span class="chip px-2 py-0.5 rounded-full text-xs font-medium">Graphic Designer</span>
             </div>
@@ -264,11 +271,11 @@
           <div class="flex-1 space-y-8">
             <div>
               <h3 class="font-display text-xl text-[#1D1D1F] mb-3" data-i18n="story.why.heading">Why We Built SaboTrack</h3>
-              <p class="text-[#6E6E73] leading-relaxed" data-i18n="story.why.body">We wanted to create a game that feels like a party from the moment you turn it on: chaotic, social, and always fair. SaboTrack was born from our love of party games and our frustration with games that leave players feeling powerless.</p>
+              <p class="text-[#6E6E73] leading-relaxed" data-i18n="story.why.body">We wanted to make a game that builds its own chaos, race after race: social, unpredictable, and always fair. SaboTrack was born from our love of party games and our frustration with experiences that leave players feeling powerless. Remember those toy car tracks you used to race with your friends as a kid? Turns out we just needed to add sabotage.</p>
             </div>
             <div>
               <h3 class="font-display text-xl text-[#1D1D1F] mb-3" data-i18n="story.afp.heading">Apple Foundation Program</h3>
-              <p class="text-[#6E6E73] leading-relaxed" data-i18n="story.afp.body">SaboTrack was developed as part of the Apple Foundation Program Avanzato 2026, an intensive program where selected developers build real products using Apple technologies. The experience shaped every design decision, from the asymmetric Apple TV + iPhone setup to the clean, minimal aesthetic.</p>
+              <p class="text-[#6E6E73] leading-relaxed" data-i18n="story.afp.body">SaboTrack was developed as part of the Apple Foundation Program Advanced Course 2026, held at the University of Palermo in partnership with Apple. The program is an intensive 8-week course where selected students design and build real iOS apps using Apple technologies, earning an official Apple certification. The experience shaped every decision we made, from the asymmetric Apple TV + iPhone setup to the clean, minimal aesthetic.</p>
             </div>
           </div>
 
@@ -302,58 +309,158 @@
     const translations = {
       en: {
         'store.comingsoon': 'Coming Soon',
+
+        // --- HERO ---
         'hero.tagline': 'Your track. Your sabotage. Their problem.',
         'hero.cta.trailer': 'Watch Trailer',
         'hero.cta.learn': 'Learn More',
+
+        // --- TRAILER ---
         'trailer.title': 'Watch the Trailer',
-        'game.title': 'Design Pillars',
-        'game.intro': 'Each race, players place objects on the track: ramps, oil slicks, spinning hammers. They shape the chaos for everyone. Score points by finishing races, triggering your own objects, and outsmarting your rivals.',
+
+        // --- WHAT MAKES IT TICK ---
+        'game.title': 'What Makes It Tick',
+        'game.intro':
+          'Each race, players place objects on the track: ramps, oil slicks, boost pads. ' +
+          'They shape the chaos for everyone. Score points by finishing races, laying your own traps, ' +
+          'and outsmarting your rivals.',
+
         'game.pillar1.title': 'Controlled Chaos',
-        'game.pillar1.body': 'Every race is unpredictable, but the unpredictability always comes from deliberate player choices, not pure randomness. The track transforms lap by lap by collective will.',
+        'game.pillar1.body':
+          'Every race is unpredictable, but the unpredictability always comes from deliberate player choices, ' +
+          'not pure randomness. The track transforms lap by lap, shaped by collective will.',
+
         'game.pillar2.title': 'Comeback Loop',
-        'game.pillar2.body': 'Players behind in the standings always have concrete tools to catch up. No one is out of the game before the last race.',
+        'game.pillar2.body':
+          'Placement points are only part of the story. Hit your rivals with your own traps and score extra ' +
+          'sabotage points. No one is out of the race before the last lap.',
+
         'game.pillar3.title': 'Split Experience',
-        'game.pillar3.body': 'TV and phone are two complementary roles in the same experience. The shared screen creates social moments; the phone creates intimacy and control.',
+        'game.pillar3.body':
+          'The TV is the racetrack. Your iPhone is the steering wheel, the strategy tool, and the weapon. ' +
+          'Two screens, one shared chaos.',
+
+        // --- HOW IT WORKS ---
         'phases.title': 'How It Works',
+
         'phases.race.sub': 'Time to go full throttle!',
-        'phases.race.body': 'Race hard, overtake your rivals, and dodge every obstacle on track. Hit the boost pads, cross the finish line first and secure maximum placement points!',
+        'phases.race.body':
+          'Race hard, overtake your rivals, and dodge every obstacle on track. ' +
+          'Hit the boost pads, cross the finish line first, and secure maximum placement points!',
+
         'phases.sabo.sub': 'Time to weaponize the track!',
-        'phases.sabo.body': 'Racing pauses but the chaos begins. Choose a trap from a random pool and place it anywhere on the circuit. Watch your opponents crash into your traps to score extra sabotage points!',
+        'phases.sabo.body':
+          'Racing pauses, but the chaos begins. Choose a trap from a random pool and place it ' +
+          'anywhere on the circuit. Watch your opponents crash into your traps and score extra sabotage points. ' +
+          'Just watch out: the track doesn\'t care whose side you\'re on.',
+
+        // --- SCREENSHOTS ---
         'screenshots.title': 'Screenshots',
+
+        // --- TEAM ---
         'team.title': 'Meet the Team',
+        'team.degree.bsc_cs': 'BSc Computer Science',
+        'team.degree.msc_cs': 'MSc Computer Science',
+        'team.degree.bsc_ce': 'BSc Computer Engineering',
+
+        // --- OUR STORY ---
         'story.title': 'Our Story',
+
         'story.why.heading': 'Why We Built SaboTrack',
-        'story.why.body': 'We wanted to create a game that feels like a party from the moment you turn it on: chaotic, social, and always fair. SaboTrack was born from our love of party games and our frustration with games that leave players feeling powerless.',
+        'story.why.body':
+          'We wanted to make a game that builds its own chaos, race after race: social, unpredictable, and always fair. SaboTrack was born from our love of party games ' +
+          'and our frustration with experiences that leave players feeling powerless. ' +
+          'Remember those toy car tracks you used to race with your friends as a kid? ' +
+          'Turns out we just needed to add sabotage!',
+
         'story.afp.heading': 'Apple Foundation Program',
-        'story.afp.body': 'SaboTrack was developed as part of the Apple Foundation Program Avanzato 2026, an intensive program where selected developers build real products using Apple technologies. The experience shaped every design decision, from the asymmetric Apple TV + iPhone setup to the clean, minimal aesthetic.',
+        'story.afp.body':
+          'SaboTrack was developed as part of the Apple Foundation Program Advanced Course 2026, ' +
+          'held at the University of Palermo in partnership with Apple. ' +
+          'The program is an intensive 8-week course where selected students design and build real iOS apps ' +
+          'using Apple technologies, earning an official Apple certification. ' +
+          'The experience shaped every decision we made, from the asymmetric Apple TV + iPhone setup ' +
+          'to the clean, minimal aesthetic.',
+
+        // --- FOOTER ---
         'footer.rights': '© 2026 SaboTrack. All rights reserved.',
       },
       it: {
-        'store.comingsoon': 'In Arrivo',
-        'hero.tagline': 'Your track. Your sabotage. Their problem.',
+        'store.comingsoon': 'Prossimamente',
+
+        // --- HERO ---
+        'hero.tagline': 'Il tuo tracciato. Il tuo sabotaggio. Problema loro.',
         'hero.cta.trailer': 'Guarda il Trailer',
         'hero.cta.learn': 'Scopri di più',
+
+        // --- TRAILER ---
         'trailer.title': 'Guarda il Trailer',
-        'game.title': 'Pilastri di Design',
-        'game.intro': "Ad ogni gara, i giocatori piazzano oggetti sulla pista: rampe, pozze d'olio, martelli rotanti. Plasmano il caos per tutti. Accumula punti finendo le gare, attivando i tuoi oggetti e sorprendendo i tuoi avversari.",
+
+        // --- WHAT MAKES IT TICK ---
+        'game.title': 'Il Motore del Gioco',
+        'game.intro':
+          'A ogni giro, i giocatori piazzano oggetti sulla pista: rampe, pozze d\'olio, boost pad. ' +
+          'Tutti trasformano il tracciato per tutti. Guadagna punti tagliando il traguardo, ' +
+          'piazzando le tue trappole e battendo i tuoi rivali.',
+
         'game.pillar1.title': 'Caos Controllato',
-        'game.pillar1.body': "Ogni corsa è imprevedibile, ma l'imprevedibilità nasce sempre da decisioni deliberate dei giocatori, non da casualità pura. Il tracciato si trasforma giro dopo giro per volere collettivo.",
-        'game.pillar2.title': 'Rivalsa Possibile',
-        'game.pillar2.body': "Chi è indietro in classifica ha sempre strumenti concreti per rimontare. Nessun giocatore si sente fuori dalla partita prima dell'ultima corsa.",
-        'game.pillar3.title': 'Split Experience',
-        'game.pillar3.body': "TV e telefono non sono due giochi separati: sono due ruoli complementari della stessa esperienza. Lo schermo condiviso crea momenti sociali; il telefono crea intimità e controllo.",
-        'phases.title': 'Come Funziona',
+        'game.pillar1.body':
+          'Ogni corsa è imprevedibile, ma l\'imprevedibilità nasce sempre da scelte deliberate dei giocatori, ' +
+          'non dalla casualità pura. Il tracciato si trasforma giro dopo giro, per volere collettivo.',
+
+        'game.pillar2.title': 'Rimonta Sempre Possibile',
+        'game.pillar2.body':
+          'I punti di piazzamento sono solo una parte del punteggio. Colpisci i tuoi rivali con le tue trappole ' +
+          'e guadagna punti sabotaggio extra. Nessuno è fuori dalla gara prima dell\'ultimo giro.',
+
+        'game.pillar3.title': 'Due Schermi, Un\'Unica Partita',
+        'game.pillar3.body':
+          'La TV è il tracciato. Il tuo iPhone è il volante, lo strumento strategico e l\'arma. ' +
+          'Due schermi, un unico caos condiviso.',
+
+        // --- HOW IT WORKS ---
+        'phases.title': 'Come si Gioca',
+
         'phases.race.sub': 'È ora di spingere al massimo!',
-        'phases.race.body': 'Corri forte, supera i tuoi rivali e schiva ogni ostacolo in pista. Colpisci i boost pad, taglia il traguardo per primo e accumula il massimo dei punti classifica!',
-        'phases.sabo.sub': 'È ora di trasformare la pista in un campo minato!',
-        'phases.sabo.body': 'La gara si ferma ma il caos inizia. Scegli una trappola da un pool casuale e piazzala ovunque sul circuito. Guarda i tuoi avversari schiantarsi sulle tue trappole per guadagnare punti sabotaggio!',
+        'phases.race.body':
+          'Corri al massimo, supera i tuoi rivali e schiva ogni ostacolo sulla pista. ' +
+          'Sfrutta i boost pad, taglia il traguardo per primo e porta a casa il massimo dei punti piazzamento!',
+
+        'phases.sabo.sub': 'È ora di trasformare la pista in un\'arma!',
+        'phases.sabo.body':
+          'La gara si ferma, ma il caos inizia. Scegli una trappola dalla selezione casuale e piazzala ' +
+          'dove vuoi sul circuito. Guarda i tuoi avversari schiantarsi e accumula punti sabotaggio. ' +
+          'Attenzione però: la pista non fa favoritismi.',
+
+        // --- SCREENSHOTS ---
         'screenshots.title': 'Screenshot',
+
+        // --- TEAM ---
         'team.title': 'Il Team',
+        'team.degree.bsc_cs': 'Laurea Triennale in Informatica',
+        'team.degree.msc_cs': 'Laurea Magistrale in Informatica',
+        'team.degree.bsc_ce': 'Laurea Triennale in Ingegneria Informatica',
+
+        // --- OUR STORY ---
         'story.title': 'La Nostra Storia',
+
         'story.why.heading': 'Perché abbiamo creato SaboTrack',
-        'story.why.body': 'Volevamo creare un gioco che si senta come una festa dal momento in cui lo accendi: caotico, sociale e sempre equo. SaboTrack è nato dal nostro amore per i party game e dalla frustrazione per i giochi che lasciano i giocatori senza strumenti per rimontare.',
+        'story.why.body':
+          'Volevamo creare un gioco che costruisce il proprio caos, gara dopo gara: sociale, imprevedibile e sempre equo. SaboTrack nasce dal nostro amore per i party game ' +
+          'e dalla frustrazione per quei giochi in cui ti ritrovi a guardare gli altri divertirsi. ' +
+          'Ricordi quelle piste di macchinine con cui giocavi con gli amici da bambino? ' +
+          'Mancava solo il sabotaggio!',
+
         'story.afp.heading': 'Apple Foundation Program',
-        'story.afp.body': "SaboTrack è stato sviluppato nell'ambito dell'Apple Foundation Program Avanzato 2026, un programma intensivo in cui sviluppatori selezionati costruiscono prodotti reali usando le tecnologie Apple. L'esperienza ha plasmato ogni decisione di design, dalla configurazione asimmetrica Apple TV + iPhone all'estetica pulita e minimale.",
+        'story.afp.body':
+          'SaboTrack è stato sviluppato durante il Corso Avanzato dell\'Apple Foundation Program 2026, ' +
+          'tenuto all\'Università degli Studi di Palermo in partnership con Apple. ' +
+          'Il programma è un percorso intensivo di 8 settimane in cui studenti selezionati progettano ' +
+          'e sviluppano app iOS reali usando le tecnologie Apple, ottenendo una certificazione ufficiale Apple. ' +
+          'Questa esperienza ha guidato ogni scelta di design, dalla configurazione asimmetrica Apple TV + iPhone ' +
+          'all\'estetica pulita e minimale.',
+
+        // --- FOOTER ---
         'footer.rights': '© 2026 SaboTrack. Tutti i diritti riservati.',
       },
     };

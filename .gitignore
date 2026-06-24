@@ -2,6 +2,8 @@
 .claude/
 .impeccable/
 CLAUDE.md
+PRODUCT.md
+DESIGN.md
 server.log
 verify_team.sh
 docs/
