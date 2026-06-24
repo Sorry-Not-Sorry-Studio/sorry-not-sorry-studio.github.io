@@ -33,6 +33,10 @@
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
     .chip { background-color: rgba(255,92,0,0.1); color: #FF5C00; }
     #lightbox { display: none; align-items: center; justify-content: center; }
+    @media (min-width: 1024px) {
+      .pillars-grid { grid-template-rows: auto auto auto; }
+      .pillar-card { grid-row: span 3; display: grid; grid-template-rows: subgrid; }
+    }
   </style>
 </head>
 <body class="bg-white text-[#1D1D1F] antialiased">
@@ -123,7 +127,7 @@
     <section id="phases" class="bg-white py-24">
       <div class="max-w-6xl mx-auto px-6">
         <h2 class="font-display text-3xl md:text-4xl text-[#1D1D1F] text-center mb-4" data-i18n="phases.title">How It Works</h2>
-        <p class="text-[#6E6E73] text-center max-w-2xl mx-auto mb-16 text-lg leading-relaxed" data-i18n="game.intro">Each race, players place objects on the track: ramps, oil slicks, boost pads. They shape the chaos for everyone. Score points by finishing races, laying your own traps, and outsmarting your rivals.</p>
+        <p class="text-[#6E6E73] text-center max-w-2xl mx-auto mb-16 text-lg leading-relaxed" data-i18n="game.intro">Each race, players place objects on the track: traffic barriers, oil slicks, boost pads. They shape the chaos for everyone. Score points by finishing races, laying your own traps, and outsmarting your rivals.</p>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
           <div class="bg-[#F5F5F7] rounded-2xl overflow-hidden shadow-sm flex flex-col">
@@ -153,9 +157,9 @@
     <section id="game" class="bg-[#F5F5F7] py-24">
       <div class="max-w-6xl mx-auto px-6">
         <h2 class="font-display text-3xl md:text-4xl text-[#1D1D1F] text-center mb-16" data-i18n="game.title">What Makes It Tick</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-x-8 lg:gap-y-0 pillars-grid">
 
-          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm pillar-card">
             <img src="assets/pillars/Controller%20Chaos.png" alt="Controlled Chaos" class="w-full object-cover">
             <div class="p-6">
               <p class="text-[#6E6E73] text-sm leading-relaxed" data-i18n="game.pillar1.body">Every race is unpredictable, but the unpredictability always comes from deliberate player choices, not pure randomness. The track transforms lap by lap, shaped by collective will.</p>
@@ -165,7 +169,7 @@
             </div>
           </div>
 
-          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm pillar-card">
             <img src="assets/pillars/Comeback%20Loop.png" alt="Comeback Loop" class="w-full object-cover">
             <div class="p-6">
               <p class="text-[#6E6E73] text-sm leading-relaxed" data-i18n="game.pillar2.body">Placement points are only part of the story. Hit your rivals with your own traps and score extra sabotage points. No one is out of the race before the last lap.</p>
@@ -175,7 +179,7 @@
             </div>
           </div>
 
-          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm pillar-card">
             <img src="assets/pillars/Splite%20Experience.png" alt="Split Experience" class="w-full object-cover">
             <div class="p-6">
               <p class="text-[#6E6E73] text-sm leading-relaxed" data-i18n="game.pillar3.body">The TV is the racetrack. Your iPhone is the steering wheel, the strategy tool, and the weapon. Two screens, one shared chaos.</p>
@@ -274,7 +278,7 @@
               <p class="text-[#6E6E73] leading-relaxed" data-i18n="story.why.body">We wanted to make a game that builds its own chaos, race after race: social, unpredictable, and always fair. SaboTrack was born from our love of party games and our frustration with experiences that leave players feeling powerless. Remember those toy car tracks you used to race with your friends as a kid? Turns out we just needed to add sabotage.</p>
             </div>
             <div>
-              <h3 class="font-display text-xl text-[#1D1D1F] mb-3" data-i18n="story.afp.heading">Apple Foundation Program</h3>
+              <h3 class="font-display text-xl text-[#1D1D1F] mb-3" data-i18n="story.afp.heading">Advanced Apple Foundation Program</h3>
               <p class="text-[#6E6E73] leading-relaxed" data-i18n="story.afp.body">SaboTrack was developed as part of the Apple Foundation Program Advanced Course 2026, held at the University of Palermo in partnership with Apple. The program is an intensive 8-week course where selected students design and build real iOS apps using Apple technologies, earning an official Apple certification. The experience shaped every decision we made, from the asymmetric Apple TV + iPhone setup to the clean, minimal aesthetic.</p>
             </div>
           </div>
@@ -321,7 +325,7 @@
         // --- WHAT MAKES IT TICK ---
         'game.title': 'What Makes It Tick',
         'game.intro':
-          'Each race, players place objects on the track: ramps, oil slicks, boost pads. ' +
+          'Each race, players place objects on the track: traffic barriers, oil slicks, boost pads. ' +
           'They shape the chaos for everyone. Score points by finishing races, laying your own traps, ' +
           'and outsmarting your rivals.',
 
@@ -373,7 +377,7 @@
           'Remember those toy car tracks you used to race with your friends as a kid? ' +
           'Turns out we just needed to add sabotage!',
 
-        'story.afp.heading': 'Apple Foundation Program',
+        'story.afp.heading': 'Advanced Apple Foundation Program',
         'story.afp.body':
           'SaboTrack was developed as part of the Apple Foundation Program Advanced Course 2026, ' +
           'held at the University of Palermo in partnership with Apple. ' +
@@ -399,7 +403,7 @@
         // --- WHAT MAKES IT TICK ---
         'game.title': 'Il Motore del Gioco',
         'game.intro':
-          'A ogni giro, i giocatori piazzano oggetti sulla pista: rampe, pozze d\'olio, boost pad. ' +
+          'A ogni giro, i giocatori piazzano oggetti sulla pista: transenne, pozze d\'olio, boost pad. ' +
           'Tutti trasformano il tracciato per tutti. Guadagna punti tagliando il traguardo, ' +
           'piazzando le tue trappole e battendo i tuoi rivali.',
 
@@ -428,7 +432,7 @@
 
         'phases.sabo.sub': 'È ora di trasformare la pista in un\'arma!',
         'phases.sabo.body':
-          'La gara si ferma, ma il caos inizia. Scegli una trappola dalla selezione casuale e piazzala ' +
+          'La gara si ferma, ma il caos inizia. Scegli la tua trappola da una selezione casuale e piazzala ' +
           'dove vuoi sul circuito. Guarda i tuoi avversari schiantarsi e accumula punti sabotaggio. ' +
           'Attenzione però: la pista non fa favoritismi.',
 
@@ -451,7 +455,7 @@
           'Ricordi quelle piste di macchinine con cui giocavi con gli amici da bambino? ' +
           'Mancava solo il sabotaggio!',
 
-        'story.afp.heading': 'Apple Foundation Program',
+        'story.afp.heading': 'Advanced Apple Foundation Program',
         'story.afp.body':
           'SaboTrack è stato sviluppato durante il Corso Avanzato dell\'Apple Foundation Program 2026, ' +
           'tenuto all\'Università degli Studi di Palermo in partnership con Apple. ' +
